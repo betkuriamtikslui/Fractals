@@ -3,6 +3,7 @@ package application;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -25,7 +26,7 @@ public class Main extends Application {
 	int max = 2550;
 
 	public  void saveToFile(Image image) {
-		File file = new File("C:\\Users\\User\\Desktop\\JFXMandelbrot-master\\"+System.currentTimeMillis()+".png");
+		File file = new File(this.getParameters().getRaw().get(0)+System.currentTimeMillis()+".png");
         RenderedImage renderedImage = SwingFXUtils.fromFXImage(image, null);
         try {
 			ImageIO.write(
@@ -100,6 +101,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
+		
 		launch(args);
 	}
 }
